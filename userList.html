@@ -1,0 +1,68 @@
+<!--need first name, last name and email. make first name required. make a edit/update/delete button to change users.-->
+
+<html ng-app="usersList">
+<head>
+	<link rel="stylesheet" type="text/css" href="user.css">
+</head>
+<body>
+
+	<div ng-controller="userCtrl">
+	<div id="add">
+		<h1 >Add a New User!</h1>
+			<form name="userCreation" novalidate>
+
+				<span style="padding-left: 0">First Name:</span>
+					<input name="firstName" type="text" ng-model="user.firstName" required />
+					
+				<span>Last Name:</span>
+					<input type="text" ng-model="user.lastName" />
+		
+				<span>Email Address:</span>
+					<input name="email" type="email" ng-model="user.email" required />
+					
+				<!-- add an image -->
+				<span>Profile Picture URL:  
+					<input name-"image" type="text" ng-model="user.image"></span>
+
+				<br>
+				<br>
+
+				<input type="submit" ng-disabled="userCreation.email.$invalid || 
+				userCreation.firstName.$invalid" ng-click="addUser()">
+			</form>
+		</div>
+
+
+		<div id="current">
+
+			<h1>Edit Current User List</h1>
+				<ul>
+					<div ng-repeat="user in userList">
+						<h3>User {{ $index + 1 }}</h3>
+							<!-- current users -->
+							<div>
+								<li><span style="padding-left: 0">First Name: </span>{{user.firstName}} </li>
+								<li><span style="padding-left: 0">Last Name: </span> {{user.lastName}}</li>
+								<li><span style="padding-left: 0">Email: </span> {{user.email}}</li>
+								<li><img src="{{user.image}}"></img></li>
+								<button ng-click="editUser()">Edit User</button>
+								<button ng-click="deleteUser(user)">Delete User</button>
+							</div>
+							<!-- edit on -->
+							<div ng-show="editMode">
+								<input type="text" placeholder="First Name" ng-model="user.firstName" required/> 
+								<input type="text" placeholder="Last Name" ng-model="user.lastName" />
+								<input type="email" placeholder="Email" ng-model="user.email" required/>
+								<input type="url" placeholder="Profile Picture" ng-model="user.image" />
+								<button ng-click="updateUser()">Update</button>
+							</div>
+					</div>
+				</ul>
+			</div>
+	</div>
+
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+		<script type="text/javascript" src="user.js"></script>
+</body>
+</html>

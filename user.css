@@ -1,0 +1,25 @@
+li {
+	list-style-type: none;
+}
+
+span {
+	padding-left: 30px;
+}
+
+img {
+	height: 50px;
+}
+
+html {
+	text-align: center;
+	font-family: sans-serif;
+	background-color: #A3A3FF;
+}
+
+#current {
+	border-top: 2 solid black;
+	border-bottom: 2 solid black;
+	background-color: #85E6A6;
+	width: 500px;
+	margin: auto;
+}
