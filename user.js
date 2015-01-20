@@ -1,5 +1,7 @@
 var usersList = angular.module('usersList', []);
 
+var myFirebaseRef = new Firebase("https://blinding-heat-3450.firebaseio.com/");
+
 usersList.controller('userCtrl', function($scope){
 
 	function resetUser() {
